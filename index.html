@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youth Food Recovery | Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Lora:wght@400;500&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #1E4D3B;
+            --secondary-green: #4CAF6A;
+            --terracotta: #D96C48;
+            --golden: #F4C542;
+            --charcoal: #2B2B2B;
+            --cream: #FAF9F6;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--charcoal);
+            background-color: var(--cream);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        h1 { font-size: 48px; }
+        h2 { font-size: 36px; }
+        h3 { font-size: 28px; }
+
+        .accent-text {
+            font-family: 'Pacifico', cursive;
+            color: var(--secondary-green);
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(30, 77, 59, 0.98);
+            padding: 16px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--cream);
+            font-size: 24px;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--cream);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-green);
+        }
+
+        .nav-links .active {
+            color: var(--golden);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background: var(--primary-green);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary-green);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(30, 77, 59, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary-green);
+            border: 2px solid var(--primary-green);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-green);
+            color: white;
+        }
+
+        .btn-donate {
+            background: var(--terracotta);
+            color: white;
+        }
+
+        .btn-donate:hover {
+            background: #c55a3a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(217, 108, 72, 0.3);
+        }
+
+        /* Hero Section with Image Placeholder */
+        .hero {
+            position: relative;
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(30, 77, 59, 0.85) 0%, rgba(42, 105, 80, 0.85) 100%),
+                        linear-gradient(45deg, #1E4D3B 25%, transparent 25%, transparent 75%, #1E4D3B 75%, #1E4D3B),
+                        linear-gradient(45deg, #1E4D3B 25%, transparent 25%, transparent 75%, #1E4D3B 75%, #1E4D3B);
+            background-size: cover, 20px 20px, 20px 20px;
+            background-position: center, 0 0, 10px 10px;
+            z-index: 0;
+        }
+
+        .hero-background::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%234CAF6A" opacity="0.1" width="1200" height="600"/><text x="50%25" y="50%25" font-size="36" fill="%23ffffff" opacity="0.3" text-anchor="middle" dominant-baseline="middle" font-family="Arial">HERO BACKGROUND IMAGE PLACEHOLDER</text></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 80px 32px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            margin-bottom: 24px;
+            font-size: 56px;
+            text-shadow: 2px 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 22px;
+            margin-bottom: 40px;
+            line-height: 1.7;
+            text-shadow: 1px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 32px;
+        }
+
+        /* Featured Section */
+        .featured {
+            background: white;
+            text-align: center;
+        }
+
+        .featured h2 {
+            color: var(--primary-green);
+            margin-bottom: 20px;
+        }
+
+        .featured-subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .featured-card {
+            background: var(--cream);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .featured-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, var(--secondary-green) 0%, var(--primary-green) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-image::before {
+            content: '📷';
+            font-size: 48px;
+            position: absolute;
+            opacity: 0.3;
+        }
+
+        .featured-content {
+            padding: 28px;
+            text-align: left;
+        }
+
+        .featured-content h3 {
+            color: var(--primary-green);
+            margin-bottom: 12px;
+            font-size: 24px;
+        }
+
+        .featured-content p {
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        /* Impact Stats */
+        .impact-stats {
+            background: linear-gradient(135deg, var(--primary-green) 0%, #2a6950 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .impact-stats::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: rgba(76, 175, 106, 0.1);
+            border-radius: 50%;
+        }
+
+        .impact-stats h2 {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            position: relative;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 32px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .stat-number {
+            font-size: 56px;
+            font-weight: 800;
+            color: var(--golden);
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 18px;
+            color: white;
+            font-weight: 500;
+        }
+
+        /* Story Section */
+        .story-section {
+            background: white;
+        }
+
+        .story-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .story-image {
+            width: 100%;
+            height: 450px;
+            background: linear-gradient(135deg, var(--secondary-green) 0%, var(--primary-green) 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            text-align: center;
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+        }
+
+        .story-image::before {
+            content: '📷';
+            font-size: 80px;
+            position: absolute;
+            opacity: 0.2;
+        }
+
+        .story-content h2 {
+            color: var(--primary-green);
+            margin-bottom: 24px;
+        }
+
+        .story-content p {
+            margin-bottom: 20px;
+            font-size: 17px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .quote-box {
+            background: var(--cream);
+            padding: 24px;
+            border-left: 4px solid var(--terracotta);
+            border-radius: 8px;
+            margin: 30px 0;
+            font-style: italic;
+        }
+
+        .quote-author {
+            margin-top: 12px;
+            font-family: 'Pacifico', cursive;
+            color: var(--primary-green);
+            font-style: normal;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--terracotta) 0%, #c55a3a 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 32px;
+        }
+
+        .cta-section h2 {
+            margin-bottom: 20px;
+            font-size: 42px;
+        }
+
+        .cta-section p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: var(--cream);
+            padding: 60px 32px 24px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: var(--secondary-green);
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .footer-section p {
+            line-height: 1.8;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .footer-section a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--secondary-green);
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 14px;
+            border-radius: 8px;
+            border: 1px solid var(--secondary-green);
+            background: white;
+            font-size: 15px;
+        }
+
+        .newsletter-form button {
+            padding: 14px 28px;
+            background: var(--secondary-green);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: background 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--primary-green);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 44px;
+            height: 44px;
+            background: rgba(76, 175, 106, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 18px;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary-green);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+        }
+
+        @media (max-width: 968px) {
+            .story-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .story-image {
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 36px; }
+            h2 { font-size: 28px; }
+            h3 { font-size: 22px; }
+            
+            .hero { min-height: 500px; }
+            .hero h1 { font-size: 40px; }
+            .container { padding: 60px 24px; }
+            .nav-links { display: none; }
+            
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo"> Food Recovery Alliance </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="programs.html">Programs</a></li>
+                <li><a href="impact.html">Impact</a></li>
+                <li><a href="join.html">Join</a></li>
+                <li><a href="donate.html" class="btn btn-donate">Donate</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <h1>Fighting Food Waste,<br>Feeding Communities</h1>
+            <p>Donating one pound for every food insecure Canadian.</p>
+            <div class="hero-buttons">
+                <a href="join.html" class="btn btn-primary">Get Involved Today</a>
+                <a href="about.html" class="btn btn-secondary">Learn Our Story</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Section -->
+    <section class="featured">
+        <div class="container">
+            <h2>How We <span class="accent-text">Make a Difference</span></h2>
+            <p class="featured-subtitle">Through collaboration, innovation, and youth leadership, we're transforming the way communities approach food waste and hunger.</p>
+            <div class="featured-grid">
+                <div class="featured-card">
+                    <div class="featured-image">
+                        [FOOD RECOVERY IMAGE PLACEHOLDER]
+                    </div>
+                    <div class="featured-content">
+                        <h3>Food Recovery</h3>
+                        <p>We partner with local farms, grocery stores, and restaurants to rescue surplus food that would otherwise go to waste.</p>
+                        <a href="programs.html" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+                <div class="featured-card">
+                    <div class="featured-image">
+                        [COMMUNITY DELIVERY IMAGE PLACEHOLDER]
+                    </div>
+                    <div class="featured-content">
+                        <h3>Community Delivery</h3>
+                        <p>Youth volunteers coordinate deliveries to food banks, shelters, and families in need throughout our community.</p>
+                        <a href="programs.html" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+                <div class="featured-card">
+                    <div class="featured-image">
+                        [EDUCATION & ADVOCACY IMAGE PLACEHOLDER]
+                    </div>
+                    <div class="featured-content">
+                        <h3>Education & Advocacy</h3>
+                        <p>Teaching young people about food systems, sustainability, and how they can make a difference in their communities.</p>
+                        <a href="programs.html" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Stats -->
+    <section class="impact-stats">
+        <div class="container">
+            <h2>Our Impact <span class="accent-text">By The Numbers</span></h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number" data-target="125000">0</span>
+                    <div class="stat-label">Pounds of Food Recovered</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" data-target="50000">0</span>
+                    <div class="stat-label">Meals Delivered</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" data-target="350">0</span>
+                    <div class="stat-label">Youth Volunteers</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" data-target="45">0</span>
+                    <div class="stat-label">Partner Organizations</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story-section">
+        <div class="container">
+            <div class="story-container">
+                <div class="story-image">
+                    [VOLUNTEER STORY IMAGE PLACEHOLDER<br>- Photo of youth volunteers in action -]
+                </div>
+                <div class="story-content">
+                    <h2>Stories of <span class="accent-text">Impact</span></h2>
+                    <p>Every day, our youth volunteers are making a real difference in their communities. From recovering fresh produce at local farms to delivering meals to families in need, they're proving that young people have the power to create meaningful change.</p>
+                    <div class="quote-box">
+                        "Being part of Youth Food Recovery showed me that young people can make a real difference. Every week, we rescue hundreds of pounds of perfectly good food and bring it to families who need it. It's changed how I see my community and my role in it."
+                        <p class="quote-author">— Sarah, Youth Volunteer</p>
+                    </div>
+                    <a href="impact.html" class="btn btn-primary">Read More Stories</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Make a Difference?</h2>
+            <p>Join our community of young changemakers and help build a more sustainable and equitable food system.</p>
+            <div class="hero-buttons">
+                <a href="join.html" class="btn btn-primary">Volunteer With Us</a>
+                <a href="donate.html" class="btn btn-secondary">Support Our Mission</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Food Recovery Alliance</h3>
+                <p>A youth-led organization fighting food waste and food insecurity through community action.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">f</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                    <a href="#" aria-label="LinkedIn">in</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="about.html">About Us</a>
+                <a href="programs.html">Our Programs</a>
+                <a href="impact.html">Impact Stories</a>
+                <a href="join.html">Get Involved</a>
+                <a href="donate.html">Donate</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>📧 foodrecoveryalliance@gmail.com</p>
+                <p>📞 (555) 123-4567</p>
+                <p>📍 123 Green Street<br>Victoria, BC</p>
+            </div>
+            <div class="footer-section">
+                <h3>Stay Connected</h3>
+                <p>Get updates on our impact, events, and opportunities to get involved.</p>
+                <form class="newsletter-form" onsubmit="return false;">
+                    <input type="email" placeholder="Your email address" aria-label="Email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Food Recovery Alliance. All rights reserved. | Privacy Policy | Terms of Service</p>
+        </div>
+    </footer>
+
+    <script>
+        // Animated Counter
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-target'));
+            const duration = 2000;
+            const increment = target / (duration / 16);
+            let current = 0;
+
+            const updateCounter = () => {
+                current += increment;
+                if (current < target) {
+                    element.textContent = Math.floor(current).toLocaleString();
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target.toLocaleString();
+                }
+            };
+
+            updateCounter();
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.classList.contains('stat-number')) {
+                        animateCounter(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe stat numbers
+        document.querySelectorAll('.stat-number').forEach(stat => {
+            observer.observe(stat);
+        });
+
+        // Newsletter form
+        const newsletterForm = document.querySelector('.newsletter-form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const input = newsletterForm.querySelector('input');
+                if (input.value) {
+                    alert('Thank you for subscribing! We\'ll keep you updated on our impact.');
+                    input.value = '';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
